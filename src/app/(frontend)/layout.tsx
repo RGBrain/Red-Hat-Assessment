@@ -1,3 +1,8 @@
+/*********************
+ * File: layout.tsx
+ * Description: Root layout component for the frontend of the Red Hat Assessment project. This file sets up the global styles and metadata for the application.
+ ********************/
+
 import React from 'react'
 import { Red_Hat_Display } from 'next/font/google'
 import './globals.css'
