@@ -1,6 +1,6 @@
 /*********************
  * File: SectionTwo.tsx
- * Description: SectionTwo component
+ * Description: SectionTwo component - in has info text (in two paragraphs)
  * This section has a red background with white text (and wavy top and bottom borders)
  ********************/
 
