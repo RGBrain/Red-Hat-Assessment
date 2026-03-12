@@ -1,1 +1,35 @@
 @import 'tailwindcss';
+
+:root {
+  --background: #ffffff;
+  --foreground: #000000;
+  --red-hat-red: #ee0000;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-red-hat: var(--font-red-hat);
+  --font-*: initial;
+  --font-sans: 'Red Hat Display', 'sans-serif';
+  --font-primary: 'Red Hat Display', 'sans-serif';
+  --color-red-hat-red: var(--red-hat-red);
+
+  /* any custom breakpoints add here */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* LEAVING EMPTY BECAUSE THE DESIGN IS FOR LIGHT MODE ONLY. */
+  }
+}
+
+html {
+  /* This is so that when click button "Register Interest", the header does not hide the form */
+  scroll-padding-top: 150px;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
