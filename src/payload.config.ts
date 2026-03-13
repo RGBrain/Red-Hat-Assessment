@@ -9,7 +9,7 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 
-import { sqliteAdapter } from "@payloadcms/db-sqlite";
+// import { sqliteAdapter } from "@payloadcms/db-sqlite";
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);
@@ -27,16 +27,16 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, "payload-types.ts"),
   },
-  // db: vercelPostgresAdapter({
-  //   pool: {
-  //     connectionString: process.env.POSTGRES_URL || '',
-  //   },
-  // }),
-  db: sqliteAdapter({
-    client: {
-      url: "file:./payload.db",
+  db: vercelPostgresAdapter({
+    pool: {
+      connectionString: process.env.POSTGRES_URL || "",
     },
   }),
+  // db: sqliteAdapter({
+  //   client: {
+  //     url: "file:./payload.db",
+  //   },
+  // }),
   sharp,
   plugins: [
     formBuilderPlugin({
