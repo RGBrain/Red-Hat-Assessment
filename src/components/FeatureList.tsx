@@ -12,7 +12,7 @@ type FeatureItem = {
   description: string
   titleClass?: string
   descriptionClass?: string
-  icon?: React.ReactNode
+  icon?: React.ElementType
   iconClass?: string
   iconSize?: number
 }

@@ -50,8 +50,8 @@ const listData = [
 const SectionThree = () => {
   return (
     <section
-      id="s2"
-      // explicitly bg-white class, to enforce white bg even if client system is in dark mode
+      id="s3"
+      // explicitly bg-white class
       className="min-h-120 bg-white pt-20 pb-28 md:pt-40 md:pb-40 xl:py-55"
     >
       <div className="mx-auto flex max-w-[1350px] flex-col items-center">
