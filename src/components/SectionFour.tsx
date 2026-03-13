@@ -1,6 +1,7 @@
 /*********************
  * File: SectionFour.tsx
- * Description: SectionFour component with Registration form
+ * Description: SectionFour component
+ * Registration form
  ********************/
 
 import React from 'react'
@@ -9,7 +10,7 @@ import RegistrationForm from './RegistrationForm'
 
 const SectionFour = () => {
   return (
-    <section id="s4" className="min-h-120 bg-red-hat-gray pt-4 pb-4">
+    <section id="s4" className="min-h-120 bg-red-hat-gray pt-4 pb-18">
       <div className="mx-auto flex max-w-[1150px] flex-col justify-start">
         <h2 className="text-red-hat-red font-bold text-3xl text-center mx-auto mb-10">
           Registration

@@ -1,6 +1,7 @@
 /*********************
  * File: page.tsx
- * Description: Home page component for the frontend of the Red Hat Assessment project. This file holds everything that goes on the landing page (i.e. header and all sections and footer). The page is styled using Tailwind CSS and uses the Red Hat Display font
+ * Description: Home page component for the frontend of the Red Hat Assessment project.
+ * This file holds everything that goes on the landing page (i.e. header and all sections and footer).
  ********************/
 
 import Header from '@/components/Header'
@@ -8,6 +9,7 @@ import SectionOne from '@/components/SectionOne'
 import SectionTwo from '@/components/SectionTwo'
 import SectionThree from '@/components/SectionThree'
 import SectionFour from '@/components/SectionFour'
+import SectionFive from '@/components/SectionFive'
 
 export default function Home() {
   return (
@@ -17,6 +19,7 @@ export default function Home() {
       <SectionTwo />
       <SectionThree />
       <SectionFour />
+      <SectionFive />
     </>
   )
 }
