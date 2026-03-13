@@ -7,6 +7,7 @@ import sharp from "sharp";
 
 import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
+import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 
 import { sqliteAdapter } from "@payloadcms/db-sqlite";
 
@@ -33,9 +34,14 @@ export default buildConfig({
   // }),
   db: sqliteAdapter({
     client: {
-      url: "./payload.db",
+      url: "file:./payload.db",
     },
   }),
   sharp,
-  plugins: [],
+  plugins: [
+    formBuilderPlugin({
+      formOverrides: {},
+      formSubmissionOverrides: {},
+    }),
+  ],
 });
