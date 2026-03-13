@@ -1,7 +1,5 @@
 import type { CollectionSlug, Payload } from "payload";
-// import { contactForm as contactFormData } from "./contact-form";
-import { eventContactForm } from "./eventContactForm";
-import { gateForm } from "./gateForm";
+import { registrationForm } from "./registration-form";
 import { getPayload } from "payload";
 import config from "@payload-config";
 
@@ -35,13 +33,7 @@ export const seed = async ({
   await payload.create({
     collection: "forms",
     depth: 0,
-    data: eventContactForm,
-  });
-
-  await payload.create({
-    collection: "forms",
-    depth: 0,
-    data: gateForm,
+    data: registrationForm,
   });
 
   payload.logger.info(`— Seeding form done`);

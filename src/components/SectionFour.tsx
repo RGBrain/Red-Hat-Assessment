@@ -45,7 +45,7 @@ const SectionFour = () => {
           <div className="flex-1">
             {/* REGISTRATION FORM */}
             {/* //TODO WAIT FOR PAYLOAD FORM SETUP */}
-            {/* <RegistrationForm /> */}
+            <RegistrationForm />
           </div>
         </div>
       </div>
