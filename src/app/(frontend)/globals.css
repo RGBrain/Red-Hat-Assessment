@@ -4,16 +4,21 @@
   --background: #ffffff;
   --foreground: #000000;
   --red-hat-red: #ee0000;
+  --red-hat-gray: #d9d9d9;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-red-hat: var(--font-red-hat);
+
   --font-*: initial;
   --font-sans: 'Red Hat Display', 'sans-serif';
   --font-primary: 'Red Hat Display', 'sans-serif';
+
+  --font-red-hat: var(--font-red-hat);
+  --font-red-hat-gray: var(--font-red-hat-gray);
   --color-red-hat-red: var(--red-hat-red);
+  --color-red-hat-gray: var(--red-hat-gray);
 
   /* any custom breakpoints add here */
 }
