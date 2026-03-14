@@ -59,7 +59,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   //! now if the utmSource is either undefined OR if it is not in the arrayOfUtmSources, then we want utmSource value to be "catch-all"
   if (!utmSource || !arrayOfUtmSources.includes(utmSource)) {
-    utmSource = "catch-all";
+    utmSource = "undefined";
   }
   // return utmSource;
   // };
