@@ -16,11 +16,19 @@ export const seed = async ({
 
   payload.logger.info(`— Clearing collections...`);
 
+  // Delete form_submissions first
+  await payload.db.deleteMany({ collection: "form-submissions", where: {} });
+
+  // Delete all other collections in parallel except 'forms'
+  const otherCollections = collections.filter((c) => c !== "forms");
   await Promise.all(
-    collections.map((collection) =>
+    otherCollections.map((collection) =>
       payload.db.deleteMany({ collection, where: {} }),
     ),
   );
+
+  // Finally delete the 'forms' collection
+  await payload.db.deleteMany({ collection: "forms", where: {} });
 
   payload.logger.info(`— Seeding admin user...`);
 

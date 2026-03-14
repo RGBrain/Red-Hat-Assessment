@@ -15,7 +15,7 @@ import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
 // import emailCSV from "@/lib/emailCSV";
 import posthog from "posthog-js";
 
-const RegistrationForm = () => {
+const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   const [cmsForm, setCmsForm] = useState<any | null>(null);
   const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
@@ -23,7 +23,7 @@ const RegistrationForm = () => {
   const [contactFormJustSubmitted, setContactFormJustSubmitted] =
     useState<boolean>(false);
 
-  const formId = 3;
+  // const formId = 3;
 
   // 1) get the form from payload
 

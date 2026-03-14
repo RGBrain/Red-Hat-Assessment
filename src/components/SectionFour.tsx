@@ -6,6 +6,27 @@
 import React from "react";
 import Image from "next/image";
 import RegistrationForm from "./RegistrationForm";
+import { getPayload } from "payload";
+import config from "@/payload.config";
+
+let formId: string | null | number = null;
+
+async function fetchOnlyFormId(): Promise<string | null | number> {
+  if (formId) return formId;
+
+  const payload = await getPayload({ config });
+  const { docs } = await payload.find({
+    collection: "forms",
+    limit: 1,
+    depth: 0,
+  });
+
+  formId = docs?.[0]?.id ?? null;
+  return formId;
+}
+
+// Start fetch immediately (server-side); components can await fetchOnlyFormId()
+const actualFormId = await fetchOnlyFormId();
 
 const SectionFour = () => {
   return (
@@ -45,7 +66,7 @@ const SectionFour = () => {
           <div className="flex-1">
             {/* REGISTRATION FORM */}
             {/* //TODO WAIT FOR PAYLOAD FORM SETUP */}
-            <RegistrationForm />
+            <RegistrationForm formId={actualFormId} />
           </div>
         </div>
       </div>
