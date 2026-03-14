@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 :root {
   --background: #ffffff;
@@ -12,8 +12,8 @@
   --color-foreground: var(--foreground);
 
   --font-*: initial;
-  --font-sans: 'Red Hat Display', 'sans-serif';
-  --font-primary: 'Red Hat Display', 'sans-serif';
+  --font-sans: "Red Hat Display", "sans-serif";
+  --font-primary: "Red Hat Display", "sans-serif";
 
   --font-red-hat: var(--font-red-hat);
   --font-red-hat-gray: var(--font-red-hat-gray);
@@ -31,7 +31,7 @@
 
 html {
   /* This is so that when click button "Register Interest", the header does not hide the form */
-  scroll-padding-top: 150px;
+  scroll-padding-top: 87px;
 }
 
 body {
