@@ -23,7 +23,28 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   const [contactFormJustSubmitted, setContactFormJustSubmitted] =
     useState<boolean>(false);
 
-  // const formId = 3;
+  //* THIS IS FOR BUSINESS MOBILE INPUT VALIDATION - SUPPRESS DEFAULT TOOLTIP AND SHOW CUSTOM ONE INSTEAD, WHEN THE INPUT IS INVALID
+
+  const [phone, setPhone] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setPhone(value);
+
+    // Validate the input using the pattern
+    const regex = /^[0-9\-\(\)]+$/;
+    if (!regex.test(value)) {
+      const msg = "Please enter a valid phone number";
+      setErrorMessage(msg);
+      e.target.setCustomValidity(msg); // show custom validation tooltip
+    } else {
+      setErrorMessage("");
+      e.target.setCustomValidity(""); // clear custom validation message
+    }
+  };
+
+  //* END OF CODE TO DO WITH BUSINESS MOBILE INPUT VALIDATION
 
   // 1) get the form from payload
 
@@ -99,6 +120,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     return (
       <>
         {/* MOBILE SKELETON */}
+        {/* //TODO SKELETON CODE STILL TO DO */}
         <div className="mx-auto w-full max-w-xl px-2 py-0 text-sm md:hidden">
           {/* <div className="">
             <Skeleton count={4} height={42} className="my-[6px] rounded-3xl" />
@@ -183,6 +205,13 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     type={isCheckbox ? "checkbox" : inputType}
                     name={field.name}
                     id={id}
+                    {...(field.name === "businessMobile" && {
+                      // THIS IS FOR Business Mobile INPUT VALIDATION
+                      pattern: "^[0-9\\-\\(\\)]+$",
+                      title: "Please enter a valid phone number",
+                      onChange: handlePhoneChange,
+                      value: phone,
+                    })}
                     className={
                       isCheckbox
                         ? "mt-0.5 h-4 w-4 rounded-sm"
@@ -199,43 +228,6 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                 </div>
               );
             })}
-            {/* <input
-              type={cmsForm.fields[0].blockType}
-              name={cmsForm.fields[0].name}
-              id={cmsForm.fields[0].name}
-              className="placeholder-inputPlaceholder h-6 rounded-3xl p-5 pl-8 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
-              placeholder={``}
-              required
-            />
-            <div className="flex flex-col justify-between space-y-4 md:flex-row md:space-y-0 md:space-x-4">
-              <input
-                type={cmsForm.fields[1].blockType}
-                name={cmsForm.fields[1].name}
-                id={cmsForm.fields[1].name}
-                size="10"
-                className="bg-inputbg placeholder-inputPlaceholder h-6 grow-1 rounded-3xl p-5 pl-8 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
-                placeholder={cmsForm.fields[1].label}
-                required
-              />
-
-              <input
-                type={cmsForm.fields[2].blockType}
-                name={cmsForm.fields[2].name}
-                id={cmsForm.fields[2].name}
-                size="10"
-                className="bg-inputbg placeholder-inputPlaceholder h-6 grow-1 rounded-3xl p-5 pl-8 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
-                placeholder={cmsForm.fields[2].label}
-                required
-              />
-            </div>
-            <input
-              type={cmsForm.fields[3].blockType}
-              name={cmsForm.fields[3].name}
-              id={cmsForm.fields[3].name}
-              className="bg-inputbg placeholder-inputPlaceholder h-6 rounded-3xl p-5 pl-8 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
-              placeholder={cmsForm.fields[3].label}
-              required
-            />  */}
             <button
               className="rounded-lg bg-black p-4 text-white"
               type="submit"

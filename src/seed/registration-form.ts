@@ -153,42 +153,27 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
                   type: "text",
                   style: "",
                   detail: 0,
-                  format: 0,
+                  format: 1,
                   version: 1,
                 },
-
                 {
                   type: "linebreak",
                   version: 1,
                 },
-
                 {
                   type: "linebreak",
                   version: 1,
                 },
-
                 {
                   mode: "normal",
                   text: "Event: 26th March - Red Hat Assessment Webinar",
                   type: "text",
                   style: "",
                   detail: 0,
-                  format: 0,
+                  format: 1,
                   version: 1,
                 },
-              ],
-              direction: null,
-              textStyle: "",
-              textFormat: 0,
-            },
 
-            {
-              type: "paragraph",
-              format: "",
-              indent: 0,
-              version: 1,
-
-              children: [
                 {
                   type: "linebreak",
                   version: 1,
@@ -196,9 +181,8 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               ],
               direction: null,
               textStyle: "",
-              textFormat: 0,
+              textFormat: 1,
             },
-
             {
               type: "paragraph",
               format: "start",
@@ -220,7 +204,6 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               textStyle: "",
               textFormat: 0,
             },
-
             {
               type: "paragraph",
               format: "",
@@ -228,11 +211,6 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               version: 1,
 
               children: [
-                {
-                  type: "linebreak",
-                  version: 1,
-                },
-
                 {
                   type: "linebreak",
                   version: 1,
