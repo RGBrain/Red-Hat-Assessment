@@ -33,7 +33,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     setPhone(value);
 
     // Validate the input using the pattern
-    const regex = /^[0-9\-\(\)]+$/;
+    // const regex = /^[0-9\-\(\)]+$/;
+    const regex =
+      /^(?:(?:\+|00)44|0)[1-3578](?:[ \t-]?\d){8,10}$|^(?:\+|00)(?!44)[1-9]\d{6,14}$/;
     if (!regex.test(value)) {
       const msg = "Please enter a valid phone number";
       setErrorMessage(msg);
@@ -207,7 +209,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     id={id}
                     {...(field.name === "businessMobile" && {
                       // THIS IS FOR Business Mobile INPUT VALIDATION
-                      pattern: "^[0-9\\-\\(\\)]+$",
+                      // pattern: "^[0-9\\-\\(\\)]+$",
                       title: "Please enter a valid phone number",
                       onChange: handlePhoneChange,
                       value: phone,
