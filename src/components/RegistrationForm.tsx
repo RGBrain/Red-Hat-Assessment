@@ -23,6 +23,53 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   const [contactFormJustSubmitted, setContactFormJustSubmitted] =
     useState<boolean>(false);
 
+  //* THIS IS TO CHECK IF ALL FIELDS ARE FILLED OUT AND ENABLE/DISABLE THE SUBMIT BUTTON ACCORDINGLY.
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    businessMobile: "",
+    company: "",
+    job: "",
+    agreement: "",
+  });
+
+  const [isButtonDisabled, setIsButtonDisabled] = useState(true);
+
+  // Handle input change
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >,
+  ) => {
+    const { name } = e.target;
+    let { value } = e.target;
+    // if (name === "agreement") {
+    //   alert(value);
+    // }
+
+    if (name === "agreement") {
+      value = (e.target as HTMLInputElement).checked ? "1" : "";
+    }
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Check if all required fields are filled
+  useEffect(() => {
+    const isFormComplete = Object.values(formData).every(
+      (value) => value !== "",
+    );
+    setIsButtonDisabled(!isFormComplete);
+  }, [formData]); // Re-run whenever formData changes
+
+  //* END OF CODE RE REGISTER BUTTON ENABLE/DISABLE BASED ON WHETHER FIELDS ARE FILLED OUT
+
+  ////////////////////////////
+
   //* THIS IS FOR BUSINESS MOBILE INPUT VALIDATION - SUPPRESS DEFAULT TOOLTIP AND SHOW CUSTOM ONE INSTEAD, WHEN THE INPUT IS INVALID
 
   const [phone, setPhone] = useState("");
@@ -48,8 +95,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   //* END OF CODE TO DO WITH BUSINESS MOBILE INPUT VALIDATION
 
-  // 1) get the form from payload
+  ////////////////////////////
 
+  // 1) get the form from payload
   // Fetch form configuration
 
   useEffect(() => {
@@ -69,10 +117,10 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
     setContactFormJustSubmitted(true);
 
-    const formData = new FormData(e.currentTarget);
+    const formDataA = new FormData(e.currentTarget);
 
     // convert the form data to a json object, for fields that are not files
-    const dataToSend = Array.from(formData.entries()).map(([name, value]) => ({
+    const dataToSend = Array.from(formDataA.entries()).map(([name, value]) => ({
       field: name,
       value: value.toString(),
     }));
@@ -207,11 +255,13 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     type={isCheckbox ? "checkbox" : inputType}
                     name={field.name}
                     id={id}
+                    {...(Boolean(field.required) && { onChange: handleChange })}
                     {...(field.name === "businessMobile" && {
-                      // THIS IS FOR Business Mobile INPUT VALIDATION
-                      // pattern: "^[0-9\\-\\(\\)]+$",
                       title: "Please enter a valid phone number",
-                      onChange: handlePhoneChange,
+                      onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
+                        handlePhoneChange(e);
+                        handleChange(e);
+                      },
                       value: phone,
                     })}
                     className={
@@ -231,8 +281,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
               );
             })}
             <button
-              className="rounded-lg bg-black p-4 text-white"
+              className="rounded-lg bg-black p-4 text-white disabled:bg-[#aaaaaa] disabled:text-[#eeeeee]"
               type="submit"
+              disabled={isButtonDisabled}
             >
               REGISTER
             </button>
