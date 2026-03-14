@@ -13,6 +13,7 @@ import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
 // import emailCSV from "@/lib/emailCSV";
+import posthog from "posthog-js";
 
 const RegistrationForm = () => {
   const [cmsForm, setCmsForm] = useState<any | null>(null);
@@ -43,8 +44,6 @@ const RegistrationForm = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    //! ADD TRACKING
-
     setContactFormJustSubmitted(true);
 
     const formData = new FormData(e.currentTarget);
@@ -70,9 +69,20 @@ const RegistrationForm = () => {
 
     if (response.ok) {
       setSuccess(true);
+      const emailField = dataToSend.find((d) => d.field === "email");
+      if (emailField?.value) {
+        posthog.identify(emailField.value, { email: emailField.value });
+      }
+      posthog.capture("registration_form_submitted", {
+        form_id: formId,
+      });
     } else {
       setError("Form submission failed");
       setSuccess(false);
+      posthog.capture("registration_form_submission_failed", {
+        form_id: formId,
+        status: response.status,
+      });
     }
 
     // reset the form

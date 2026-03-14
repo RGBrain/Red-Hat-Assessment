@@ -4,10 +4,19 @@
  * This is the 'Get in Touch' section with email
  ********************/
 
+"use client";
+
 import React from "react";
 import { Mail } from "lucide-react";
+import posthog from "posthog-js";
 
 const SectionFive = () => {
+  const handleEmailClick = () => {
+    posthog.capture("contact_email_clicked", {
+      email: "estate-assessment@businesstech.tech",
+    });
+  };
+
   return (
     <section
       id="s5"
@@ -24,6 +33,7 @@ const SectionFive = () => {
           <a
             href="mailto:estate-assessment@businesstech.tech"
             className="text-red-hat-red underline"
+            onClick={handleEmailClick}
           >
             estate-assessment@businesstech.tech
           </a>

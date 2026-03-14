@@ -4,7 +4,15 @@
  * This is for privacy policy and terms
  * ********************/
 
+"use client";
+
+import posthog from "posthog-js";
+
 const Footer = () => {
+  const handlePrivacyPolicyClick = () => {
+    posthog.capture("privacy_policy_clicked");
+  };
+
   return (
     <footer className="bg-black py-6 text-white">
       <div className="container mx-auto flex flex-col items-center justify-between gap-12 px-4 lg:flex-row lg:items-start lg:gap-60 xl:gap-100">
@@ -19,6 +27,7 @@ const Footer = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="underline"
+              onClick={handlePrivacyPolicyClick}
             >
               View the LeadaMarket Privacy Policy
             </a>

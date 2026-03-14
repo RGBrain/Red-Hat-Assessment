@@ -4,6 +4,20 @@ import { withPayload } from "@payloadcms/next/withPayload";
 const nextConfig = {
   // Your Next.js config here
 
+  async rewrites() {
+    return [
+      {
+        source: "/ingest/static/:path*",
+        destination: "https://eu-assets.i.posthog.com/static/:path*",
+      },
+      {
+        source: "/ingest/:path*",
+        destination: "https://eu.i.posthog.com/:path*",
+      },
+    ];
+  },
+  skipTrailingSlashRedirect: true,
+
   typescript: {
     ignoreBuildErrors: true,
   },
