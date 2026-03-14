@@ -57,7 +57,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   // Get the specific UTM source
   let utmSource = searchParams.get("utm_source");
 
-  //! now if the utmSource is either undefined OR if it is not in the arrayOfUtmSources, then we want utmSource value to be "catch-all"
+  //! now if the utmSource is either undefined OR if it is not in the arrayOfUtmSources, then we want utmSource value to be "undefined"
   if (!utmSource || !arrayOfUtmSources.includes(utmSource)) {
     utmSource = "undefined";
   }
