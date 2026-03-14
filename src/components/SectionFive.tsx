@@ -1,7 +1,7 @@
 /*********************
  * File: SectionFive.tsx
  * Description: SectionFive component
- * This is the 'Get in Touch' section with email
+ * This is the 'Get in Touch' section with email address
  ********************/
 
 "use client";
@@ -20,8 +20,7 @@ const SectionFive = () => {
   return (
     <section
       id="s5"
-      // explicitly bg-white class
-      className="bg-white py-8"
+      className="py-8"
     >
       <div className="mx-auto flex max-w-[1350px] flex-col items-center">
         <h2 className="text-red-hat-red mx-auto mb-6 text-center text-3xl font-normal lg:mb-10">

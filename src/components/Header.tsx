@@ -1,6 +1,6 @@
 /*********************
  * File: Header.tsx
- * Description: Header component for the frontend of the Red Hat Assessment project. This file holds the header section of the landing page. The header is styled using Tailwind CSS and uses the Red Hat Display font
+ * Description: Header component
  ********************/
 
 import BtnRegister from "@/components/BtnRegister";

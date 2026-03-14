@@ -20,7 +20,7 @@ const SectionOne = () => {
           className="w-full flex-1 -ml-6 lg:ml-0"
         />
         <div className="flex-1 flex flex-col gap-10">
-          {/* THIS DIV IS ONE FLEX ITEM (used as a container for the two Paragraph elements) */}
+          {/* Div for title and subtitle */}
           <p className="text-4xl lg:text-7xl leading-snug font-bold">
             Unlocking the Value of Your Linux Estate
           </p>

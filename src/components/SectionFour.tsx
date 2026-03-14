@@ -52,11 +52,11 @@ const SectionFour = () => {
             {/* This w-fit class allows to center the list yet still keeping the text left aligned */}
             <ul className="mx-auto mt-8 flex w-fit flex-col gap-3 text-left text-lg lg:mx-0 lg:w-full">
               <li>Date: 26th March</li>
-              <li>Time: 1:00-11:00</li>
-              <li>Presenter: Daryl Kelly</li>
+              <li>Time: 10:00-11:00</li>
+              <li>Presenter: Darryl Kelly</li>
             </ul>
             <Image
-              src="/daryl-kelly.png"
+              src="/darryl-kelly.png"
               alt="Webinar"
               width={200}
               height={200}
@@ -64,8 +64,7 @@ const SectionFour = () => {
             />
           </div>
           <div className="flex-1">
-            {/* REGISTRATION FORM */}
-            {/* //TODO WAIT FOR PAYLOAD FORM SETUP */}
+
             <Suspense fallback={<div>Loading...</div>}>
               <RegistrationForm formId={actualFormId} />
             </Suspense>

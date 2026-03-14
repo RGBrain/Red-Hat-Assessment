@@ -1,14 +1,12 @@
 /*********************
  * File: SectionThree.tsx
  * Description: SectionThree component
- * This section has three columns (three reasons for Red Hat)
+ * This section has three columns (three reasons for Red Hat Assessment)
  ********************/
 
 import React from 'react'
 import FeatureList from '@/components/FeatureList'
-import { MonitorCheck, ShieldPlus, CirclePoundSterling, Icon } from 'lucide-react'
-
-//* Using the Ciena website 3 column layout as a template
+import { MonitorCheck, ShieldPlus, CirclePoundSterling } from 'lucide-react'
 
 const descriptionClass = ''
 
@@ -51,8 +49,7 @@ const SectionThree = () => {
   return (
     <section
       id="s3"
-      // explicitly bg-white class
-      className="min-h-120 bg-white pt-20 pb-28 md:pt-40 md:pb-40 xl:py-55"
+      className="min-h-120 pt-20 pb-28 md:pt-40 md:pb-40 xl:py-55"
     >
       <div className="mx-auto flex max-w-[1350px] flex-col items-center">
         <FeatureList listData={listData} />

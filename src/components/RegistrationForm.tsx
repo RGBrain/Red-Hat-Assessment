@@ -17,14 +17,13 @@ import { useSearchParams } from "next/navigation";
 
 const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   const [cmsForm, setCmsForm] = useState<any | null>(null);
-  const [error, setError] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [success, setSuccess] = useState<boolean>(false);
   const [contactFormJustSubmitted, setContactFormJustSubmitted] =
     useState<boolean>(false);
 
-  //* THIS IS TO GET THE utm_source FROM THE URL, SO I CAN PASS IT TO PAYLOAD ON FORM SUBMISSION
-
+  //* GET utm_source FROM THE URL
+  
+  //* ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
   const arrayOfUtmSources = [
     "red-hat",
     "softcat",
@@ -57,19 +56,15 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   // Get the specific UTM source
   let utmSource = searchParams.get("utm_source");
 
-  //! now if the utmSource is either undefined OR if it is not in the arrayOfUtmSources, then we want utmSource value to be "undefined"
+  // If utmSource is either undefined OR if it is not in the arrayOfUtmSources, then return "undefined"
   if (!utmSource || !arrayOfUtmSources.includes(utmSource)) {
     utmSource = "undefined";
   }
-  // return utmSource;
-  // };
-  //*   THIS IS AN ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
-
   //* END OF CODE TO GET utm_source FROM URL
 
   /////////////////////
 
-  //* THIS IS TO CHECK IF ALL FIELDS ARE FILLED OUT AND ENABLE/DISABLE THE SUBMIT BUTTON ACCORDINGLY.
+  //* CHECK IF ALL FIELDS ARE FILLED-OUT AND ENABLE/DISABLE THE SUBMIT BUTTON ACCORDINGLY
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -90,9 +85,6 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   ) => {
     const { name } = e.target;
     let { value } = e.target;
-    // if (name === "agreement") {
-    //   alert(value);
-    // }
 
     if (name === "agreement") {
       value = (e.target as HTMLInputElement).checked ? "1" : "";
@@ -116,7 +108,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   ////////////////////////////
 
-  //* THIS IS FOR BUSINESS MOBILE INPUT VALIDATION - SUPPRESS DEFAULT TOOLTIP AND SHOW CUSTOM ONE INSTEAD, WHEN THE INPUT IS INVALID
+  //* BUSINESS MOBILE INPUT VALIDATION - SUPPRESS DEFAULT TOOLTIP AND SHOW CUSTOM ONE INSTEAD, WHEN THE INPUT IS INVALID
 
   const [phone, setPhone] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -126,7 +118,6 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     setPhone(value);
 
     // Validate the input using the pattern
-    // const regex = /^[0-9\-\(\)]+$/;
     const regex =
       /^(?:(?:\+|00)44|0)[1-3578](?:[ \t-]?\d){8,10}$|^(?:\+|00)(?!44)[1-9]\d{6,14}$/;
     if (!regex.test(value)) {
@@ -139,7 +130,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     }
   };
 
-  //* END OF CODE TO DO WITH BUSINESS MOBILE INPUT VALIDATION
+  //* END OF CODE FOR BUSINESS MOBILE INPUT VALIDATION
 
   ////////////////////////////
 
@@ -158,7 +149,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   //* 2) render the form based on field types
 
   //! TEST
-  // console.log("utmSource:", utmSource); // Log the utmSource to verify it's being captured correctly
+  //! console.log("utmSource:", utmSource); // Log the utmSource to verify it's being captured correctly
 
   // handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -179,7 +170,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     const response = await fetch("/api/form-submissions", {
       method: "POST",
       body: JSON.stringify({
-        form: formId, // form id
+        form: formId, 
         submissionData: dataToSend,
       }),
       headers: {
@@ -279,7 +270,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   if (contactFormJustSubmitted) {
     setTimeout(() => {
       setContactFormJustSubmitted(false);
-    }, 5000);
+    }, 4000);
     return (
       <div className="mx-auto block pt-40 pb-28 text-center text-xl font-bold md:pb-19 xl:pb-26">
         <RichText data={cmsForm.confirmationMessage} />
@@ -352,8 +343,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
               disabled={isButtonDisabled}
             >
               REGISTER
-            </button>
-            ;
+            </button>       
           </div>
         </form>
       </div>

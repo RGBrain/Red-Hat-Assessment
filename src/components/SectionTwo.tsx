@@ -1,6 +1,6 @@
 /*********************
  * File: SectionTwo.tsx
- * Description: SectionTwo component - in has info text (in two paragraphs)
+ * Description: SectionTwo component - it has info text (in two paragraphs)
  * This section has a red background with white text (and wavy top and bottom borders)
  ********************/
 
@@ -13,14 +13,14 @@ const SectionTwo = () => {
       className="bg-red-hat-red relative overflow-hidden py-10 text-white lg:py-20"
     >
       {/* Top Curve */}
-      {/* TODO This svg code is auto generated, but next can try and make the wavyness to match the figma */}
+      {/* //TODO This svg code is auto generated, but next can try and make the wavyness to match the figma */}
       <svg
         className="absolute top-0 left-0 hidden h-[40px] w-full lg:block"
         viewBox="0 0 1440 100"
         preserveAspectRatio="none"
       >
         <path
-          fill="white"
+          fill="w hite"
           d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,0 L0,0 Z"
         />
       </svg>
