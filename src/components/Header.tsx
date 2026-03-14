@@ -13,15 +13,17 @@ const Header = () => {
   };
 
   return (
-    <header className="bg-red-hat-red text-white py-6">
-      <div className="container mx-auto px-4 flex justify-end">
+    <header className="bg-red-hat-red sticky top-0 z-50 w-full py-6 text-white transition duration-750 ease-in-out">
+      <div className="container mx-auto flex justify-end px-4">
         <button
-          className="bg-white text-black font-bold py-2 px-10 rounded-lg"
+          className="rounded-lg bg-white px-10 py-2 font-bold text-black"
           onClick={handleRegisterClick}
-        >Register</button>
+        >
+          Register
+        </button>
       </div>
     </header>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;
