@@ -14,6 +14,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
       blockName: null,
       blockType: "text",
     },
+
     {
       id: "69b40ae64f7a0ab48144642d",
       name: "lastName",
@@ -24,6 +25,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
       blockName: null,
       blockType: "text",
     },
+
     {
       id: "69b40af64f7a0ab48144642f",
       name: "email",
@@ -33,6 +35,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
       blockName: null,
       blockType: "email",
     },
+
     {
       id: "69b40b5d4f7a0ab481446431",
       name: "businessMobile",
@@ -42,15 +45,8 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
       required: true,
       blockName: null,
       blockType: "text",
-      validate: (value: string) => {
-        const regex = /^\+?[\d\s\-()]{7,20}$/;
-        return regex.test(value) || "Please enter a valid phone number";
-      },
-      admin: {
-        inputMode: "tel", // numeric keyboard on mobile
-        description: "Digits, spaces, hyphens, and parentheses allowed",
-      },
-    } as any,
+    },
+
     {
       id: "69b40b7b4f7a0ab481446433",
       name: "company",
@@ -61,6 +57,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
       blockName: null,
       blockType: "text",
     },
+
     {
       id: "69b40b8a4f7a0ab481446435",
       name: "job",
@@ -81,6 +78,17 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
       defaultValue: null,
       blockName: null,
       blockType: "checkbox",
+    },
+
+    {
+      id: "69b590d5efd75bbeecf5784a",
+      name: "utmSource",
+      label: "utmSource",
+      width: null,
+      defaultValue: null,
+      required: null,
+      blockName: null,
+      blockType: "text",
     },
   ],
   submitButtonLabel: "Register",
@@ -156,14 +164,17 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
                   format: 1,
                   version: 1,
                 },
+
                 {
                   type: "linebreak",
                   version: 1,
                 },
+
                 {
                   type: "linebreak",
                   version: 1,
                 },
+
                 {
                   mode: "normal",
                   text: "Event: 26th March - Red Hat Assessment Webinar",
@@ -183,6 +194,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               textStyle: "",
               textFormat: 1,
             },
+
             {
               type: "paragraph",
               format: "start",
@@ -192,7 +204,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               children: [
                 {
                   mode: "normal",
-                  text: '<table><tr><td style="padding-right:25px;">First Name</td><td>rr</td></tr><tr><td style="padding-right:25px;">Last Name</td><td>tt</td></tr><tr><td style="padding-right:25px;">Email</td><td>hrth@wytge.com</td></tr><tr><td style="padding-right:25px;">Business Mobile</td><td>yy</td></tr><tr><td style="padding-right:25px;">Company</td><td>tt</td></tr><tr><td style="padding-right:25px;">Job Title </td><td>rr</td></tr><tr><td style="padding-right:25px;">Checkbox</td><td>Yes</td></tr></table>',
+                  text: '<table><tr><td style="padding-right:25px;">First Name</td><td>{{firstName}}</td></tr><tr><td style="padding-right:25px;">Last Name</td><td>{{lastName}}</td></tr><tr><td style="padding-right:25px;">Email</td><td>{{email}}</td></tr><tr><td style="padding-right:25px;">Business Mobile</td><td>{{businessMobile}}</td></tr><tr><td style="padding-right:25px;">Company</td><td>{{company}}</td></tr><tr><td style="padding-right:25px;">Job Title </td><td>{{job}}</td></tr><tr><td style="padding-right:25px;">Checkbox</td><td>Yes</td></tr><tr><td style="padding-right:25px;">Tracking link</td><td>{{utmSource}}</td></tr></table>',
                   type: "text",
                   style: "",
                   detail: 0,
@@ -204,6 +216,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               textStyle: "",
               textFormat: 0,
             },
+
             {
               type: "paragraph",
               format: "",
@@ -213,16 +226,6 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               children: [
                 {
                   type: "linebreak",
-                  version: 1,
-                },
-
-                {
-                  mode: "normal",
-                  text: "Tracking Link: to do still ...",
-                  type: "text",
-                  style: "",
-                  detail: 0,
-                  format: 0,
                   version: 1,
                 },
               ],

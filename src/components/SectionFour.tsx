@@ -3,7 +3,7 @@
  * Description: SectionFour component with Registration form
  ********************/
 
-import React from "react";
+import React, { Suspense } from "react";
 import Image from "next/image";
 import RegistrationForm from "./RegistrationForm";
 import { getPayload } from "payload";
@@ -66,7 +66,9 @@ const SectionFour = () => {
           <div className="flex-1">
             {/* REGISTRATION FORM */}
             {/* //TODO WAIT FOR PAYLOAD FORM SETUP */}
-            <RegistrationForm formId={actualFormId} />
+            <Suspense fallback={<div>Loading...</div>}>
+              <RegistrationForm formId={actualFormId} />
+            </Suspense>
           </div>
         </div>
       </div>

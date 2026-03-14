@@ -1,19 +1,19 @@
-/*********************
+/**********************
  * File: RegistrationForm.tsx
  * Description: RegistrationForm component
  * There are five text inputs, as well as a checkbox which must be checked for the form to be submittable
- ********************/
+ *********************/
 
 "use client";
 
 import React from "react";
 import { RichText } from "@payloadcms/richtext-lexical/react";
-import { useEffect, useRef } from "react";
-import { useState } from "react";
-import Skeleton from "react-loading-skeleton";
+import { useState, useEffect, useRef } from "react";
+import Skeleton from "react-loading-skeleton"; //TODO  skeleton for form is still to do
 import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
 import emailCSV from "@/lib/emailCSV";
 import posthog from "posthog-js";
+import { useSearchParams } from "next/navigation";
 
 const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   const [cmsForm, setCmsForm] = useState<any | null>(null);
@@ -22,6 +22,52 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   const [success, setSuccess] = useState<boolean>(false);
   const [contactFormJustSubmitted, setContactFormJustSubmitted] =
     useState<boolean>(false);
+
+  //* THIS IS TO GET THE utm_source FROM THE URL, SO I CAN PASS IT TO PAYLOAD ON FORM SUBMISSION
+
+  const arrayOfUtmSources = [
+    "red-hat",
+    "softcat",
+    "scc",
+    "computacenter",
+    "northdoor",
+    "meridian",
+    "crayon",
+    "elyzium",
+    "cdw",
+    "xma",
+    "microlise",
+    "red-helix",
+    "insight",
+    "prolifics",
+    "responsiv",
+    "formuspro",
+    "celerity",
+    "bytes",
+    "integres",
+    "innovecom",
+    "securelinx",
+    "modenlogic",
+    "service-express",
+  ];
+
+  // const UtmSourceComponent = () => {
+  const searchParams = useSearchParams();
+
+  // Get the specific UTM source
+  let utmSource = searchParams.get("utm_source");
+
+  //! now if the utmSource is either undefined OR if it is not in the arrayOfUtmSources, then we want utmSource value to be "catch-all"
+  if (!utmSource || !arrayOfUtmSources.includes(utmSource)) {
+    utmSource = "catch-all";
+  }
+  // return utmSource;
+  // };
+  //*   THIS IS AN ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
+
+  //* END OF CODE TO GET utm_source FROM URL
+
+  /////////////////////
 
   //* THIS IS TO CHECK IF ALL FIELDS ARE FILLED OUT AND ENABLE/DISABLE THE SUBMIT BUTTON ACCORDINGLY.
   const [formData, setFormData] = useState({
@@ -111,6 +157,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   //* 2) render the form based on field types
 
+  //! TEST
+  // console.log("utmSource:", utmSource); // Log the utmSource to verify it's being captured correctly
+
   // handle form submission
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -164,6 +213,8 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
       "Please find a list of all Red Hat form submissions attached \n\n\nBrain Web Dev",
       "red-hat-form-submissions",
     );
+
+    setPhone("");
   };
 
   if (!cmsForm)
@@ -223,6 +274,8 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
       </>
     );
 
+  // console.log("Final utmSource value being used:", utmSource); // Log the final utmSource value to verify the catch-all logic is working
+
   if (contactFormJustSubmitted) {
     setTimeout(() => {
       setContactFormJustSubmitted(false);
@@ -243,11 +296,18 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
               const id = field.name ?? `field-${idx}`;
               const inputType = field.blockType ?? field.type ?? "text";
               const isCheckbox = inputType === "checkbox";
+              const isUtmSourceField = field.name === "utmSource";
 
               return (
                 <div
                   key={id}
-                  className={isCheckbox ? "flex items-start space-x-3" : "mb-0"}
+                  className={
+                    isCheckbox
+                      ? "flex items-start space-x-3"
+                      : isUtmSourceField
+                        ? "hidden"
+                        : "mb-0"
+                  }
                 >
                   {!isCheckbox && field.label}
                   <br />
@@ -255,7 +315,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     type={isCheckbox ? "checkbox" : inputType}
                     name={field.name}
                     id={id}
-                    {...(Boolean(field.required) && { onChange: handleChange })}
+                    {...(Boolean(field.required) && {
+                      onChange: handleChange,
+                    })}
                     {...(field.name === "businessMobile" && {
                       title: "Please enter a valid phone number",
                       onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -271,6 +333,10 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     }
                     placeholder={``}
                     required={Boolean(field.required)}
+                    {...(isUtmSourceField && {
+                      readOnly: true,
+                      value: utmSource,
+                    })}
                   />
                   {isCheckbox && (
                     <label htmlFor={id} className="text-sm text-gray-700">
