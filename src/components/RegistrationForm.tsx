@@ -12,7 +12,7 @@ import { useEffect, useRef } from "react";
 import { useState } from "react";
 import Skeleton from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css"; // Import skeleton styles
-// import emailCSV from "@/lib/emailCSV";
+import emailCSV from "@/lib/emailCSV";
 import posthog from "posthog-js";
 
 const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
@@ -111,11 +111,11 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     // reset the form
     formRef.current?.reset();
 
-    // emailCSV(
-    //   "Ciena form submissions",
-    //   "Please find a list of all Ciena form submissions attached \n\n\nBrain Web Dev",
-    //   "ciena-form-submissions",
-    // );
+    emailCSV(
+      "Red Hat form submissions",
+      "Please find a list of all Red Hat form submissions attached \n\n\nBrain Web Dev",
+      "red-hat-form-submissions",
+    );
   };
 
   if (!cmsForm)
