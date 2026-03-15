@@ -173,6 +173,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     fetch(`/api/forms/${formId}`)
       .then((res) => res.json())
       .then((data) => {
+        // setTimeout(() => setCmsForm(data), 3000);
         setCmsForm(data);
       })
       .catch((err) => {
@@ -246,55 +247,35 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     return (
       <>
         {/* MOBILE SKELETON */}
-        {/* //TODO SKELETON CODE STILL TO DO */}
-        <div className="mx-auto w-full max-w-xl px-2 py-0 text-sm md:hidden">
-          {/* <div className="">
-            <Skeleton count={4} height={42} className="my-[6px] rounded-3xl" />
-            <div className="flex justify-center">
-              <Skeleton
-                count={1}
-                height={42}
-                className="mx-auto mt-[8px] rounded-3xl text-center"
-                width={180}
-                baseColor="#d1d5db"
-                highlightColor="#9ca3af"
-              />
+        <div className="-mx-40 mt-12 flex w-full justify-stretch">
+          <div className="border-red-hat-red block w-full max-w-[500px] min-w-[350px] flex-1 rounded-md border bg-white px-6 pt-3 lg:hidden">
+            <div className="mx-auto w-full px-0 py-0 pt-4 text-sm">
+              <div className="w-full">
+                <Skeleton count={6} height={52} className="my-6 rounded-3xl" />
+
+                <Skeleton
+                  count={1}
+                  height={52}
+                  className="my-6 mt-10 rounded-3xl"
+                />
+              </div>
             </div>
-          </div> */}
+          </div>
         </div>
 
-        {/* SKELETON > 768PX */}
-        <div className="mx-auto hidden w-full max-w-[650px] px-0 py-0 pt-[2px] text-sm md:block">
-          {/* <div className="">
-            <Skeleton
-              count={1}
-              height={45}
-              className="my-[9px] rounded-3xl xl:my-[11px]"
-              baseColor="#d1d5db"
-              highlightColor="#9ca3af"
-            />
-            <Skeleton
-              count={1}
-              height={45}
-              className="my-[9px] rounded-3xl xl:my-[11px]"
-              baseColor="#d1d5db"
-              highlightColor="#9ca3af"
-            />
-            <Skeleton
-              count={1}
-              height={45}
-              className="mt-[9px] mb-[9px] rounded-3xl xl:my-[11px]"
-              baseColor="#d1d5db"
-              highlightColor="#9ca3af"
-            />
-            <Skeleton
-              count={1}
-              height={45}
-              className="mt-[9px] mb-[9px] rounded-3xl xl:my-[11px]"
-              baseColor="#d1d5db"
-              highlightColor="#9ca3af"
-            />
-          </div> */}
+        {/* DESKTOP SKELETON */}
+        <div className="border-red-hat-red -mx-8 hidden max-w-[500px] min-w-[350px] rounded-md border bg-white px-0 pt-3 lg:mr-4 lg:block lg:h-[746px] lg:w-[640px] lg:max-w-[1500px]">
+          <div className="mx-auto w-full max-w-xl px-0 py-0 pt-4 text-sm">
+            <div className="w-full">
+              <Skeleton count={6} height={52} className="my-6 rounded-3xl" />
+
+              <Skeleton
+                count={1}
+                height={52}
+                className="my-6 mt-10 rounded-3xl"
+              />
+            </div>
+          </div>
         </div>
       </>
     );
@@ -314,7 +295,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   return (
     <>
-      <div className="border-red-hat-red lg:max-auto -mx-8 mt-12 rounded-md border bg-white p-6 text-sm text-gray-600 lg:mt-0">
+      <div className="border-red-hat-red lg:max-auto -mx-8 mt-12 rounded-md border bg-white p-6 text-sm text-gray-600 lg:mt-0 lg:mr-4">
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="flex flex-col items-stretch justify-between gap-y-6">
             {cmsForm.fields.map((field: any, idx: number) => {

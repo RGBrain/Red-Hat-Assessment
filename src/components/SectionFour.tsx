@@ -64,7 +64,6 @@ const SectionFour = () => {
             />
           </div>
           <div className="flex-1">
-
             <Suspense fallback={<div>Loading...</div>}>
               <RegistrationForm formId={actualFormId} />
             </Suspense>
