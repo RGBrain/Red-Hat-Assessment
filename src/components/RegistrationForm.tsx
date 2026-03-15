@@ -22,7 +22,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     useState<boolean>(false);
 
   //* GET utm_source FROM THE URL
-  
+
   //* ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
   const arrayOfUtmSources = [
     "red-hat",
@@ -143,7 +143,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
       .then((data) => {
         setCmsForm(data);
       })
-      .catch((err) => setError("Error loading form"));
+      .catch((err) => {
+        console.error("Error fetching form configuration:", err);
+      });
   }, [formId]);
 
   //* 2) render the form based on field types
@@ -170,7 +172,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     const response = await fetch("/api/form-submissions", {
       method: "POST",
       body: JSON.stringify({
-        form: formId, 
+        form: formId,
         submissionData: dataToSend,
       }),
       headers: {
@@ -179,7 +181,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     });
 
     if (response.ok) {
-      setSuccess(true);
+      // setSuccess(true);
       const emailField = dataToSend.find((d) => d.field === "email");
       if (emailField?.value) {
         posthog.identify(emailField.value, { email: emailField.value });
@@ -188,8 +190,8 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
         form_id: formId,
       });
     } else {
-      setError("Form submission failed");
-      setSuccess(false);
+      // setError("Form submission failed");
+      // setSuccess(false);
       posthog.capture("registration_form_submission_failed", {
         form_id: formId,
         status: response.status,
@@ -265,7 +267,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
       </>
     );
 
-  // console.log("Final utmSource value being used:", utmSource); // Log the final utmSource value to verify the catch-all logic is working
+  // console.log("Final utmSource value being used:", utmSource);    // Log the final utmSource value to verify the catch-all logic is working
 
   if (contactFormJustSubmitted) {
     setTimeout(() => {
@@ -320,7 +322,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     className={
                       isCheckbox
                         ? "mt-0.5 h-4 w-4 rounded-sm"
-                        : "bg-inputbg placeholder-inputPlaceholder mt-2 box-border h-6 w-full rounded-md p-5 pl-8 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
+                        : "bg-inputbg placeholder-inputPlaceholder mt-2 box-border h-6 w-full rounded-md p-4 pl-4 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
                     }
                     placeholder={``}
                     required={Boolean(field.required)}
@@ -338,12 +340,12 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
               );
             })}
             <button
-              className="rounded-lg bg-black p-4 text-white disabled:bg-[#aaaaaa] disabled:text-[#eeeeee]"
+              className="cursor-pointer rounded-lg bg-black p-4 text-white disabled:cursor-not-allowed disabled:bg-[#aaaaaa] disabled:text-[#eeeeee]"
               type="submit"
               disabled={isButtonDisabled}
             >
               REGISTER
-            </button>       
+            </button>
           </div>
         </form>
       </div>
