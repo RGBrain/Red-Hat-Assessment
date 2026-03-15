@@ -51,6 +51,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   ];
 
   //* ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
+  //! IT IS IMPORTANT, THAT THE INDEXES LINE UP EXACTLY BETWEEN THE ABOVE AND BELOW ARRAYS, TO GIVE ACCURATE UTM SOURCE DATA
   const arrayOfUtmSourcesReadable = [
     "Red Hat",
     "Softcat",
@@ -95,14 +96,14 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   /////////////////////
 
-  //* CHECK IF ALL FIELDS ARE FILLED-OUT AND ENABLE/DISABLE THE SUBMIT BUTTON ACCORDINGLY
+  //*   CHECK IF ALL FIELDS ARE FILLED-OUT AND ENABLE/DISABLE THE SUBMIT BUTTON ACCORDINGLY
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
     email: "",
     businessMobile: "",
     company: "",
-    job: "",
+    jobTitle: "",
     agreement: "",
   });
 
@@ -233,7 +234,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     formRef.current?.reset();
 
     emailCSV(
-      "Red Hat form submissions",
+      "CSV Red Hat form submissions",
       "Please find a list of all Red Hat form submissions attached \n\n\nBrain Web Dev",
       "red-hat-form-submissions",
     );

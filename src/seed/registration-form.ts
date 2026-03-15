@@ -60,8 +60,8 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
 
     {
       id: "69b40b8a4f7a0ab481446435",
-      name: "job",
-      label: "Job",
+      name: "jobTitle",
+      label: "Job Title",
       width: null,
       defaultValue: null,
       required: true,
@@ -204,7 +204,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
               children: [
                 {
                   mode: "normal",
-                  text: '<table><tr><td style="padding-right:25px;">First Name</td><td>{{firstName}}</td></tr><tr><td style="padding-right:25px;">Last Name</td><td>{{lastName}}</td></tr><tr><td style="padding-right:25px;">Email</td><td>{{email}}</td></tr><tr><td style="padding-right:25px;">Business Mobile</td><td>{{businessMobile}}</td></tr><tr><td style="padding-right:25px;">Company</td><td>{{company}}</td></tr><tr><td style="padding-right:25px;">Job Title </td><td>{{job}}</td></tr><tr><td style="padding-right:25px;">Checkbox</td><td>Yes</td></tr><tr><td style="padding-right:25px;">Tracking link</td><td>{{utmSource}}</td></tr></table>',
+                  text: '<table><tr><td style="padding-right:25px;">First Name</td><td>{{firstName}}</td></tr><tr><td style="padding-right:25px;">Last Name</td><td>{{lastName}}</td></tr><tr><td style="padding-right:25px;">Email</td><td>{{email}}</td></tr><tr><td style="padding-right:25px;">Business Mobile</td><td>{{businessMobile}}</td></tr><tr><td style="padding-right:25px;">Company</td><td>{{company}}</td></tr><tr><td style="padding-right:25px;">Job Title </td><td>{{jobTitle}}</td></tr><tr><td style="padding-right:25px;">Checkbox</td><td>Yes</td></tr><tr><td style="padding-right:25px;">Tracking link</td><td>{{utmSource}}</td></tr></table>',
                   type: "text",
                   style: "",
                   detail: 0,

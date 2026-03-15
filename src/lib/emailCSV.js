@@ -35,7 +35,7 @@ const emailCSV = async (emailSubject, emailMessage, csvFilenamePrefix) => {
   // *** ADD FIELD HEADINGS ***
 
   //First column: date
-  csvFile += `date,`;
+  csvFile += `Date,`;
 
   // Each iteration is one fieldData
   for (let fieldData of formSubmissions.docs[0].submissionData) {
