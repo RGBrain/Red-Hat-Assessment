@@ -26,7 +26,7 @@ const SectionTwo = () => {
       </svg>
 
       {/* Content */}
-      <div className="relative z-10 mx-auto flex w-full max-w-[1300px] flex-col gap-4 px-10 text-lg leading-snug lg:gap-10 lg:px-0 lg:text-2xl lg:leading-normal">
+      <div className="relative z-10 mx-auto flex w-full max-w-[1300px] flex-col gap-4 px-10 text-lg leading-snug min-[1400px]:px-0 lg:gap-10 lg:px-20 lg:text-2xl lg:leading-normal">
         <p>
           Keeping your Linux environment secure, compliant, and cost-effective
           is harder than ever—especially with sprawling estates, legacy
