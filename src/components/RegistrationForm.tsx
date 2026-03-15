@@ -50,6 +50,33 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     "service-express",
   ];
 
+  //* ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
+  const arrayOfUtmSourcesReadable = [
+    "Red Hat",
+    "Softcat",
+    "SCC",
+    "Computacenter",
+    "Northdoor",
+    "Meridian",
+    "Crayon",
+    "Elyzium",
+    "CDW",
+    "XMA",
+    "Microlise",
+    "Red Helix",
+    "Insight",
+    "Prolifics",
+    "Responsiv",
+    "FormusPro",
+    "Celerity",
+    "Bytes",
+    "Integres",
+    "Innovecom",
+    "Securelinx",
+    "ModenLogic",
+    "Service Express",
+  ];
+
   // const UtmSourceComponent = () => {
   const searchParams = useSearchParams();
 
@@ -59,6 +86,10 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   // If utmSource is either undefined OR if it is not in the arrayOfUtmSources, then return "undefined"
   if (!utmSource || !arrayOfUtmSources.includes(utmSource)) {
     utmSource = "undefined";
+  } else {
+    // find the index of the utmSource in the arrayOfUtmSources and use that index to get the readable version from arrayOfUtmSourcesReadable
+    const index = arrayOfUtmSources.indexOf(utmSource);
+    utmSource = arrayOfUtmSourcesReadable[index];
   }
   //* END OF CODE TO GET utm_source FROM URL
 
