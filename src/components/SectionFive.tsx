@@ -18,10 +18,7 @@ const SectionFive = () => {
   };
 
   return (
-    <section
-      id="s5"
-      className="py-8"
-    >
+    <section id="s5" className="py-8">
       <div className="mx-auto flex max-w-[1350px] flex-col items-center">
         <h2 className="text-red-hat-red mx-auto mb-6 text-center text-3xl font-normal lg:mb-10">
           Get in Touch
@@ -44,7 +41,7 @@ const SectionFive = () => {
             <img
               src="/logos-td-synnex-and-red-hat.png"
               alt="TD Synnex and Red Hat"
-              className="h-12 object-contain md:h-16"
+              className="h-12 object-contain md:h-16 lg:pr-10"
             />
           </div>
         </div>

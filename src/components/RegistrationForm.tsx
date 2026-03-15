@@ -346,7 +346,16 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                   />
                   {isCheckbox && (
                     <label htmlFor={id} className="text-sm text-gray-700">
-                      {`I have read and agree to the Microsoft event terms and conditions*`}
+                      I have read and agree to the&nbsp;
+                      <a
+                        href="https://support.microsoft.com/en-gb/office/microsoft-teams-event-registration-site-terms-of-service-876e9338-a1cf-44cf-805b-d2a83b6b4399"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline hover:text-blue-800"
+                      >
+                        {`Microsoft event terms and conditions`}
+                      </a>
+                      *
                     </label>
                   )}
                 </div>
