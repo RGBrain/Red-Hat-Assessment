@@ -44,6 +44,11 @@ const emailCSV = async (emailSubject, emailMessage, csvFilenamePrefix) => {
     }
 
     let fieldName = fieldData.field;
+
+    // format fieldName into something more readable e.g. 'eventSelect' becomes 'Event Select'
+    fieldName = fieldName.replace(/([A-Z])/g, " $1"); // add space before capital letters
+    fieldName = (fieldName.charAt(0).toUpperCase() + fieldName.slice(1)).trim(); // capitalize first letter
+
     csvFile += `${fieldName},`;
   }
 
