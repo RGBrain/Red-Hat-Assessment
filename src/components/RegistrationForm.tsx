@@ -247,7 +247,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     return (
       <>
         {/* MOBILE SKELETON */}
-        <div className="-mx-40 mt-12 flex w-full justify-stretch">
+        <div className="-mx-40 mt-12 flex w-full justify-stretch lg:hidden">
           <div className="border-red-hat-red block w-full max-w-[500px] min-w-[350px] flex-1 rounded-md border bg-white px-6 pt-3 lg:hidden">
             <div className="mx-auto w-full px-0 py-0 pt-4 text-sm">
               <div className="w-full">
@@ -264,9 +264,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
         </div>
 
         {/* DESKTOP SKELETON */}
-        <div className="border-red-hat-red -mx-8 hidden max-w-[500px] min-w-[350px] rounded-md border bg-white px-0 pt-3 lg:mr-4 lg:block lg:h-[746px] lg:w-[640px] lg:max-w-[1500px]">
+        <div className="border-red-hat-red -mx-8 hidden max-w-[500px] min-w-[350px] rounded-md border bg-white px-0 pt-3 lg:mr-4 lg:block lg:h-[746px] lg:w-[550px] lg:max-w-[1500px]">
           <div className="mx-auto w-full max-w-xl px-0 py-0 pt-4 text-sm">
-            <div className="w-full">
+            <div className="mx-6 w-[500px]">
               <Skeleton count={6} height={52} className="my-6 rounded-3xl" />
 
               <Skeleton
@@ -295,7 +295,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   return (
     <>
-      <div className="border-red-hat-red lg:max-auto -mx-8 mt-12 rounded-md border bg-white p-6 text-sm text-gray-600 lg:mt-0 lg:mr-4">
+      <div className="border-red-hat-red lg:max-auto -mx-8 mt-4 rounded-md border bg-white p-6 text-sm text-gray-600 lg:mt-0 lg:mr-4">
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="flex flex-col items-stretch justify-between gap-y-6">
             {cmsForm.fields.map((field: any, idx: number) => {
