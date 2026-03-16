@@ -21,12 +21,12 @@ const SectionOne = () => {
         />
         <div className="flex flex-1 flex-col gap-10 lg:pr-5">
           {/* Div for title and subtitle */}
-          <p className="text-4xl leading-snug font-bold lg:text-7xl">
+          <h1 className="text-4xl leading-snug font-bold lg:text-5xl">
             Unlocking the Value of Your Linux Estate
-          </p>
-          <p className="text-xl font-semibold lg:text-4xl">
+          </h1>
+          <h2 className="text-xl font-semibold lg:text-3xl">
             A Red Hat Assessment Deep Dive
-          </p>
+          </h2>
         </div>
       </div>
     </section>
