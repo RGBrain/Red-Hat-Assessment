@@ -32,7 +32,7 @@ const SectionFour = () => {
   return (
     <section
       id="s4"
-      className="bg-red-hat-gray min-h-120 pt-14 pb-12 lg:pt-8 lg:pb-6"
+      className="bg-red-hat-gray min-h-120 pt-14 pb-12 lg:pt-8 lg:pb-14"
     >
       <div className="mx-auto flex max-w-[1150px] flex-col justify-start">
         <h2 className="text-red-hat-red mx-auto mb-2 pt-2 text-center text-4xl font-bold lg:mb-0 lg:pt-4 xl:text-[2.5rem]">
