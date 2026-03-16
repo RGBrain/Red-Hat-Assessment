@@ -42,10 +42,10 @@ const FeatureList: React.FC<{ listData: FeatureItem[] }> = ({ listData }) => {
                 className={`mx-auto ${iconClass ?? ""}`}
                 style={{ fontSize: iconSize ?? undefined }}
               >
-                <Icon className={iconClass} size={iconSize} strokeWidth={0.8} />
+                <Icon className={iconClass} size={iconSize} strokeWidth={0.4} />
               </div>
             )}
-            <h2 className="mt-6 mb-8 text-3xl font-bold md:mb-12 md:text-2xl xl:text-[2.00rem]">
+            <h2 className="mt-6 mb-8 text-3xl font-bold md:mb-12 md:text-3xl xl:text-[2.00rem]">
               {title}
             </h2>
             <p

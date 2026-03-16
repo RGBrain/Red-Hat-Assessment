@@ -9,6 +9,9 @@ import { Users } from "./collections/Users";
 import { Media } from "./collections/Media";
 import { formBuilderPlugin } from "@payloadcms/plugin-form-builder";
 
+import { nodemailerAdapter } from "@payloadcms/email-nodemailer";
+import nodemailer from "nodemailer";
+
 // import { sqliteAdapter } from "@payloadcms/db-sqlite";
 
 const filename = fileURLToPath(import.meta.url);
@@ -44,4 +47,19 @@ export default buildConfig({
       formSubmissionOverrides: {},
     }),
   ],
+  email: nodemailerAdapter({
+    defaultFromAddress: process.env.SMTP_USER || "",
+    defaultFromName: process.env.SMTP_FROM_NAME || "",
+    // Nodemailer transportOptions
+    // Any Nodemailer transport
+    transport: await nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : 465, //465, //587
+      secure: true, // true for 465
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.G_APP_PW,
+      },
+    }),
+  }),
 });
