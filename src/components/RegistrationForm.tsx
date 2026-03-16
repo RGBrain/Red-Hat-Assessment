@@ -311,7 +311,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
       </>
     );
 
-  // console.log("Final utmSource value being used:", utmSource);    // Log the final utmSource value to verify the catch-all logic is working
+  //   console.log("Final utmSource value being used:", utmSource);    // Log the final utmSource value to verify the catch-all logic is working
 
   if (contactFormJustSubmitted) {
     setTimeout(() => {
@@ -326,7 +326,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   return (
     <>
-      <div className="border-red-hat-red lg:max-auto -mx-8 mt-4 rounded-md border bg-white p-6 text-sm text-gray-600 lg:mt-0 lg:mr-4">
+      <div className="border-red-hat-red lg:max-auto mx-auto mt-4 rounded-md border bg-white p-6 text-sm text-gray-600 lg:-mx-8 lg:mt-0 lg:mr-4">
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="flex flex-col items-stretch justify-between gap-y-6">
             {cmsForm.fields.map((field: any, idx: number) => {
