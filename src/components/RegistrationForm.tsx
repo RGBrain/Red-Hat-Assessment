@@ -148,13 +148,16 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     const phoneRegex =
       /^(?:(?:\+|00)44|0)[1-3578](?:[ \t-]?\d){8,10}$|^(?:\+|00)(?!44)[1-9]\d{6,14}$/;
 
+    // Strip spaces/dashes from phone numbers before validating
+    const cleanPhone = formData.businessMobile.replace(/[\s-]/g, "");
+
     if (
       formData.firstName.trim().length >= 2 &&
       formData.lastName.trim().length >= 2 &&
       formData.company.trim().length >= 2 &&
       formData.jobTitle.trim().length >= 2 &&
       emailRegex.test(formData.email) &&
-      phoneRegex.test(formData.businessMobile) &&
+      phoneRegex.test(cleanPhone) &&
       formData.agreement === "1"
     ) {
       isFormComplete = true;
