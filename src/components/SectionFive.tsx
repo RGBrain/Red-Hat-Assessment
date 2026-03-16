@@ -9,6 +9,7 @@
 import React from "react";
 import { Mail } from "lucide-react";
 import posthog from "posthog-js";
+import Image from "next/image";
 
 const SectionFive = () => {
   const handleEmailClick = () => {
@@ -38,10 +39,13 @@ const SectionFive = () => {
         <div className="mt-8 w-full">
           {/* LOGOS */}
           <div className="flex w-full justify-center lg:justify-end">
-            <img
+            <Image
               src="/logos-td-synnex-and-red-hat.png"
               alt="TD Synnex and Red Hat"
-              className="h-12 object-contain md:h-16 lg:pr-10"
+              width={400} // Set this to the actual pixel width of your image
+              height={64} // Set this to the actual pixel height
+              className="h-12 w-auto object-contain md:h-16 lg:pr-10"
+              priority={true} // Recommended if this logo is at the top of the page
             />
           </div>
         </div>
