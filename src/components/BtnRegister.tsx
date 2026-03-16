@@ -18,7 +18,7 @@ const BtnRegister = () => {
   const { y } = useScrollPosition();
   return (
     <button
-      className="cursor-pointer rounded-lg bg-white px-10 py-2 font-bold text-black hover:scale-102"
+      className="cursor-pointer rounded-lg bg-white px-10 py-2 text-lg font-bold text-black hover:scale-102"
       onClick={() => {
         handleRegisterClick();
         scrollToElement("s4");
