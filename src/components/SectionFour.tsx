@@ -8,6 +8,8 @@ import Image from "next/image";
 import RegistrationForm from "./RegistrationForm";
 import { getPayload } from "payload";
 import config from "@/payload.config";
+import ClientOnlyWrapper from "./ClientOnlyWrapper";
+import SlideElementWrapper from "./SlideElementWrapper";
 
 let formId: string | null | number = null;
 
@@ -64,7 +66,11 @@ const SectionFour = () => {
           </div>
           <div className="flex-1">
             <Suspense fallback={<div>Loading...</div>}>
-              <RegistrationForm formId={actualFormId} />
+              <ClientOnlyWrapper>
+                <SlideElementWrapper slideFrom="right" duration="1.0">
+                  <RegistrationForm formId={actualFormId} />
+                </SlideElementWrapper>
+              </ClientOnlyWrapper>
             </Suspense>
           </div>
         </div>

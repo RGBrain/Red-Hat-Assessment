@@ -20,8 +20,8 @@ const SectionFive = () => {
 
   return (
     <section id="s5" className="py-8">
-      <div className="mx-auto flex max-w-[1350px] flex-col items-center">
-        <FadeTextWrapper>
+      <FadeTextWrapper>
+        <div className="mx-auto flex max-w-[1350px] flex-col items-center">
           <h2 className="text-red-hat-red mx-auto mb-6 text-center text-3xl font-normal lg:mb-10">
             Get in Touch
           </h2>
@@ -47,8 +47,8 @@ const SectionFive = () => {
               />
             </div>
           </div>
-        </FadeTextWrapper>
-      </div>
+        </div>
+      </FadeTextWrapper>
     </section>
   );
 };
