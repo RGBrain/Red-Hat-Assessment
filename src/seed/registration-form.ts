@@ -133,7 +133,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
   emails: [
     {
       id: "69b4453cf732c26593df2bff",
-      emailTo: "richard.brain@hotmail.co.uk",
+      emailTo: "helen.rutherford@leadamarket.com",
       cc: null,
       bcc: null,
       replyTo: "info@brainweb.dev",
@@ -241,7 +241,7 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
 
     {
       id: "c880eb88b46e88a91b93b3a0",
-      emailTo: "matt@brainweb.dev",
+      emailTo: "ben.clark@leadamarket.com",
       cc: null,
       bcc: null,
       replyTo: "info@brainweb.dev",
@@ -349,7 +349,114 @@ export const registrationForm: RequiredDataFromCollectionSlug<"forms"> = {
 
     {
       id: "a1743d92a21a38a89ac2e01c",
-      emailTo: "richard@brainweb.dev",
+      emailTo: "richard.brain@leadamarket.com",
+      cc: null,
+      bcc: null,
+      replyTo: "info@brainweb.dev",
+      emailFrom: '"Web Notifications" <info@brainweb.dev>',
+      subject: "Red Hat Assessment Registration form submitted",
+
+      message: {
+        root: {
+          type: "root",
+          format: "",
+          indent: 0,
+          version: 1,
+
+          children: [
+            {
+              type: "paragraph",
+              format: "",
+              indent: 0,
+              version: 1,
+
+              children: [
+                {
+                  mode: "normal",
+                  text: "Registration Form Submitted",
+                  type: "text",
+                  style: "",
+                  detail: 0,
+                  format: 1,
+                  version: 1,
+                },
+
+                {
+                  type: "linebreak",
+                  version: 1,
+                },
+
+                {
+                  type: "linebreak",
+                  version: 1,
+                },
+
+                {
+                  mode: "normal",
+                  text: "Event: 26th March - Red Hat Assessment Webinar",
+                  type: "text",
+                  style: "",
+                  detail: 0,
+                  format: 1,
+                  version: 1,
+                },
+
+                {
+                  type: "linebreak",
+                  version: 1,
+                },
+              ],
+              direction: null,
+              textStyle: "",
+              textFormat: 1,
+            },
+
+            {
+              type: "paragraph",
+              format: "start",
+              indent: 0,
+              version: 1,
+
+              children: [
+                {
+                  mode: "normal",
+                  text: '<table><tr><td style="padding-right:25px;">First Name</td><td>{{firstName}}</td></tr><tr><td style="padding-right:25px;">Last Name</td><td>{{lastName}}</td></tr><tr><td style="padding-right:25px;">Email</td><td>{{email}}</td></tr><tr><td style="padding-right:25px;">Business Mobile</td><td>{{businessMobile}}</td></tr><tr><td style="padding-right:25px;">Company</td><td>{{company}}</td></tr><tr><td style="padding-right:25px;">Job Title </td><td>{{jobTitle}}</td></tr><tr><td style="padding-right:25px;">Checkbox</td><td>Yes</td></tr><tr><td style="padding-right:25px;">Tracking link</td><td>{{utmSource}}</td></tr></table>',
+                  type: "text",
+                  style: "",
+                  detail: 0,
+                  format: 0,
+                  version: 1,
+                },
+              ],
+              direction: null,
+              textStyle: "",
+              textFormat: 0,
+            },
+
+            {
+              type: "paragraph",
+              format: "",
+              indent: 0,
+              version: 1,
+
+              children: [
+                {
+                  type: "linebreak",
+                  version: 1,
+                },
+              ],
+              direction: null,
+              textStyle: "",
+              textFormat: 0,
+            },
+          ],
+          direction: null,
+        },
+      },
+    },
+    {
+      id: "a1743d92a21a38a89ac2e01c",
+      emailTo: "matt@brainweb.dev",
       cc: null,
       bcc: null,
       replyTo: "info@brainweb.dev",
