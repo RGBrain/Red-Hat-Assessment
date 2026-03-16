@@ -37,7 +37,7 @@ const SectionFour = () => {
       className="bg-red-hat-gray min-h-120 pt-14 pb-12 lg:pt-8 lg:pb-14"
     >
       <div className="mx-auto flex max-w-[1150px] flex-col justify-start">
-        <h2 className="text-red-hat-red mx-auto mb-2 pt-2 text-center text-4xl font-bold lg:mb-0 lg:pt-4 xl:text-[2.5rem]">
+        <h2 className="text-red-hat-red mx-auto mb-2 pt-2 text-center text-4xl font-[800] lg:mb-0 lg:pt-4 xl:text-[2.5rem]">
           Registration
         </h2>
         <div className="mt-4 flex flex-col items-center justify-center px-1 lg:mt-10 lg:flex-row lg:items-start lg:gap-0 lg:px-0 xl:gap-16">
