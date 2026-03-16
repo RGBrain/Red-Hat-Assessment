@@ -60,6 +60,7 @@ const SectionFour = () => {
               width={200}
               height={200}
               className="mx-auto mt-12 mb-8 h-48 w-48 rounded-full object-cover lg:mx-0 lg:mr-auto lg:mb-0 lg:h-64 lg:w-64"
+              priority
             />
           </div>
           <div className="flex-1">
