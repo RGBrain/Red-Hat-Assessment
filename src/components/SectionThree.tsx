@@ -50,7 +50,7 @@ const SectionThree = () => {
   return (
     <section
       id="s3"
-      className="min-h-120 pt-20 pb-28 md:pt-40 md:pb-40 lg:py-28 xl:py-32"
+      className="min-h-120 pt-20 pb-28 md:pt-12 md:pb-12 lg:py-16 xl:py-20"
     >
       <div className="mx-auto flex max-w-[1350px] flex-col items-center">
         <FadeTextWrapper>
