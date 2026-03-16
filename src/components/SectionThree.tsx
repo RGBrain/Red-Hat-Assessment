@@ -7,6 +7,7 @@
 import React from "react";
 import FeatureList from "@/components/FeatureList";
 import { MonitorCheck, ShieldPlus, CirclePoundSterling } from "lucide-react";
+import FadeTextWrapper from "./FadeTextWrapper";
 
 const descriptionClass = "";
 
@@ -52,7 +53,9 @@ const SectionThree = () => {
       className="min-h-120 pt-20 pb-28 md:pt-40 md:pb-40 lg:py-28 xl:py-32"
     >
       <div className="mx-auto flex max-w-[1350px] flex-col items-center">
-        <FeatureList listData={listData} />
+        <FadeTextWrapper>
+          <FeatureList listData={listData} />
+        </FadeTextWrapper>
       </div>
     </section>
   );
