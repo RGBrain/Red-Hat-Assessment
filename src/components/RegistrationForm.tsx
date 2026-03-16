@@ -130,9 +130,40 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   // Check if all required fields are filled
   useEffect(() => {
-    const isFormComplete = Object.values(formData).every(
-      (value) => value !== "",
-    );
+    // const isFormComplete = Object.values(formData).every(
+    //   (value) => value !== "",
+    // );
+    //* ORIGINAL CODE ABOVE, WHICH SIMPLY CHECKED IF ALL FIELDS WERE FILLED OUT, WITHOUT ANY VALIDATION ON THE CONTENT OF THE FIELDS
+
+    //! NEW CODE BELOW FOR MORE STRICT VALIDATION
+    let isFormComplete = false;
+
+    // i want to check these form fields
+    // firstName, lastName, company and jobTitle must all have at least two characters
+    // email must match a regex pattern for valid email addresses
+    // businessMobile must match the regex pattern for valid phone numbers (the same one used in the handlePhoneChange function)
+    // agreement must be "1" (i.e. the checkbox must be ticked)
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const phoneRegex =
+      /^(?:(?:\+|00)44|0)[1-3578](?:[ \t-]?\d){8,10}$|^(?:\+|00)(?!44)[1-9]\d{6,14}$/;
+
+    if (
+      formData.firstName.trim().length >= 2 &&
+      formData.lastName.trim().length >= 2 &&
+      formData.company.trim().length >= 2 &&
+      formData.jobTitle.trim().length >= 2 &&
+      emailRegex.test(formData.email) &&
+      phoneRegex.test(formData.businessMobile) &&
+      formData.agreement === "1"
+    ) {
+      isFormComplete = true;
+    }
+
+    // const isFormComplete = Object.values(formData).every(
+    //   (value) => value !== "",
+    // );
+
     setIsButtonDisabled(!isFormComplete);
   }, [formData]); // Re-run whenever formData changes
 
@@ -321,9 +352,10 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     type={isCheckbox ? "checkbox" : inputType}
                     name={field.name}
                     id={id}
-                    {...(Boolean(field.required) && {
-                      onChange: handleChange,
-                    })}
+                    {...(Boolean(field.required) &&
+                      field.name !== "businessMobile" && {
+                        onChange: handleChange,
+                      })}
                     {...(field.name === "businessMobile" && {
                       title: "Please enter a valid phone number",
                       onChange: (e: React.ChangeEvent<HTMLInputElement>) => {
