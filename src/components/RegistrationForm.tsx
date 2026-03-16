@@ -298,7 +298,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
         </div>
 
         {/* DESKTOP SKELETON */}
-        <div className="border-red-hat-red -mx-8 hidden max-w-[500px] min-w-[350px] rounded-md border bg-white px-0 pt-3 lg:mr-4 lg:block lg:h-[746px] lg:w-[550px] lg:max-w-[1500px]">
+        <div className="border-red-hat-red -mx-8 hidden max-w-[500px] min-w-[350px] rounded-md border bg-white px-0 pt-3 lg:mr-4 lg:ml-8 lg:block lg:h-[746px] lg:w-[550px] lg:max-w-[1500px]">
           <div className="mx-auto w-full max-w-xl px-0 py-0 pt-4 text-sm">
             <div className="mx-6 w-[500px]">
               <Skeleton count={6} height={52} className="my-6 rounded-3xl" />
@@ -329,7 +329,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   return (
     <>
-      <div className="border-red-hat-red lg:max-auto mx-auto mt-4 rounded-md border bg-white p-6 text-sm text-gray-600 lg:-mx-8 lg:mt-0 lg:mr-4">
+      <div className="border-red-hat-red lg:max-auto mx-auto mt-4 rounded-md border bg-white p-6 text-sm text-gray-600 lg:-mx-8 lg:mt-0 lg:mr-4 lg:ml-20 lg:w-[500px]">
         <form onSubmit={handleSubmit} ref={formRef}>
           <div className="flex flex-col items-stretch justify-between gap-y-6">
             {cmsForm.fields.map((field: any, idx: number) => {
@@ -370,7 +370,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
                     className={
                       isCheckbox
                         ? "mt-0.5 h-4 w-4 rounded-sm"
-                        : "bg-inputbg placeholder-inputPlaceholder mt-2 box-border h-6 w-full rounded-md p-4 pl-4 text-xl outline-1 outline-gray-300 md:py-6 xl:h-12 xl:text-[1.40rem]"
+                        : "bg-inputbg placeholder-inputPlaceholder mt-2 box-border h-6 w-full rounded-md p-4 pl-4 text-xl outline-1 outline-gray-300 md:py-5 xl:h-10 xl:text-[1.40rem]"
                     }
                     placeholder={``}
                     required={Boolean(field.required)}
