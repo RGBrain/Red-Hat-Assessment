@@ -39,7 +39,7 @@ const SectionTwo = () => {
         <svg
           viewBox="0 0 100 100"
           preserveAspectRatio="none"
-          className="absolute inset-0 z-49 h-full w-full"
+          className="absolute inset-0 z-45 h-full w-full"
         >
           <path
             fill="#ee0000"
@@ -62,7 +62,7 @@ const SectionTwo = () => {
         </svg>
 
         {/* Content */}
-        <div className="relative z-50 mx-auto flex w-full max-w-[1300px] flex-col gap-4 px-10 text-lg leading-snug min-[1400px]:px-0 lg:gap-10 lg:px-20 lg:text-2xl lg:leading-normal">
+        <div className="relative z-48 mx-auto flex w-full max-w-[1300px] flex-col gap-4 px-10 text-lg leading-snug min-[1400px]:px-0 lg:gap-10 lg:px-20 lg:text-2xl lg:leading-normal">
           <p>
             Keeping your Linux environment secure, compliant, and cost-effective
             is harder than ever—especially with sprawling estates, legacy
