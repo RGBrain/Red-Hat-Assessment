@@ -43,7 +43,7 @@ const SectionFour = () => {
         <div className="mt-4 flex flex-col items-center justify-center px-1 lg:mt-10 lg:flex-row lg:items-start lg:gap-0 lg:px-0 xl:gap-16">
           <div className="flex-1 lg:mt-20 lg:-mr-10 lg:ml-20 xl:-mr-20 xl:ml-0">
             {/* WEBINAR INFO */}
-            <p className="text-center text-lg leading-relaxed font-bold min-[1200px]:text-2xl lg:text-left lg:text-xl xl:text-2xl">
+            <p className="text-center text-lg leading-relaxed font-bold lg:text-left lg:text-2xl xl:text-2xl">
               Live Webinar
               <br className="" />
               Unlocking the Value of Your Linux Estate:
