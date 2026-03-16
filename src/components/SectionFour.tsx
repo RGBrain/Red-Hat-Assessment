@@ -40,14 +40,14 @@ const SectionFour = () => {
         <h2 className="text-red-hat-red mx-auto mb-2 pt-2 text-center text-4xl font-bold lg:mb-0 lg:pt-4 xl:text-[2.5rem]">
           Registration
         </h2>
-        <div className="mt-4 flex flex-col items-center justify-center px-10 lg:mt-10 lg:flex-row lg:items-start lg:gap-0 lg:px-0 xl:gap-16">
+        <div className="mt-4 flex flex-col items-center justify-center px-1 lg:mt-10 lg:flex-row lg:items-start lg:gap-0 lg:px-0 xl:gap-16">
           <div className="flex-1 lg:mt-20 lg:-mr-10 lg:ml-20 xl:-mr-20 xl:ml-0">
             {/* WEBINAR INFO */}
             <p className="text-center text-lg leading-relaxed font-bold min-[1200px]:text-2xl lg:text-left lg:text-xl xl:text-2xl">
               Live Webinar
-              <br className="hidden lg:block" />
+              <br className="" />
               Unlocking the Value of Your Linux Estate:
-              <br className="hidden lg:block" />A Red Hat Assessment Deep Dive
+              <br className="" />A Red Hat Assessment Deep Dive
             </p>
             {/* WEBINAR DATE/TIME/PRESENTER */}
             {/* This w-fit class allows to center the list yet still keeping the text left aligned */}
