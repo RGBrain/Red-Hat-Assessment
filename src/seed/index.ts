@@ -46,17 +46,18 @@ export const seed = async ({
 
   payload.logger.info(`— Seeding form done`);
 
-  const [notUsed1] = await Promise.all([
-    payload.create({
-      collection: "users",
-      data: {
-        email: "admin@testing.com",
-        password: "admin",
-        name: "Admin",
-        roles: ["admin"],
-      },
-    }),
-  ]);
+  //! DON'T CREATE THIS GENERIC ONE
+  // const [notUsed1] = await Promise.all([
+  //   payload.create({
+  //     collection: "users",
+  //     data: {
+  //       email: "admin@testing.com",
+  //       password: "admin",
+  //       name: "Admin",
+  //       roles: ["admin"],
+  //     },
+  //   }),
+  // ]);
 
   payload.logger.info("Seeded database successfully!");
 
