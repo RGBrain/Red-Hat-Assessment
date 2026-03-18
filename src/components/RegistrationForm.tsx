@@ -23,7 +23,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
 
   //* GET utm_source FROM THE URL
 
-  //* ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
+  //* ARRAY OF ALL ACCEPTED 27 UTM SOURCES:
   const arrayOfUtmSources = [
     "red-hat",
     "softcat",
@@ -48,6 +48,10 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     "securelinx",
     "modenlogic",
     "service-express",
+    "a24",
+    "icom",
+    "ibm",
+    "tdsynnex",
   ];
 
   //* ARRAY OF ALL ACCEPTED 23 UTM SOURCES:
@@ -76,6 +80,10 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     "Securelinx",
     "ModenLogic",
     "Service Express",
+    "A24",
+    "ICom",
+    "IBM",
+    "TDSynnex",
   ];
 
   // const UtmSourceComponent = () => {
