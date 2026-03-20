@@ -65,7 +65,7 @@ const SectionFour = () => {
               priority
             />
           </div>
-          <div className="flex-1">
+          <div className="flex-1" id="s4-reg-form">
             <Suspense fallback={<div>Loading...</div>}>
               <ClientOnlyWrapper>
                 <SlideElementWrapper slideFrom="right" duration="1.0">
