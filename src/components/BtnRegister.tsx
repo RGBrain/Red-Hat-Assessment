@@ -21,7 +21,7 @@ const BtnRegister = () => {
       className="cursor-pointer rounded-lg bg-white px-10 py-2 text-lg font-bold text-black hover:scale-102"
       onClick={() => {
         handleRegisterClick();
-        scrollToElement("s4");
+        scrollToElement("s4-reg-form");
       }}
     >
       Register
