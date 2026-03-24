@@ -83,7 +83,7 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
     "A24",
     "ICom",
     "IBM",
-    "TDSynnex",
+    "TD SYNNEX",
   ];
 
   // const UtmSourceComponent = () => {
@@ -92,9 +92,9 @@ const RegistrationForm = ({ formId }: { formId: string | null | number }) => {
   // Get the specific UTM source
   let utmSource = searchParams.get("utm_source");
 
-  // If utmSource is either undefined OR if it is not in the arrayOfUtmSources, then return "undefined"
+  // If utmSource is either undefined OR if it is not in the arrayOfUtmSources, then return "Undefined"
   if (!utmSource || !arrayOfUtmSources.includes(utmSource)) {
-    utmSource = "undefined";
+    utmSource = "Undefined";
   } else {
     // find the index of the utmSource in the arrayOfUtmSources and use that index to get the readable version from arrayOfUtmSourcesReadable
     const index = arrayOfUtmSources.indexOf(utmSource);
